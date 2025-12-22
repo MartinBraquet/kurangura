@@ -231,8 +231,9 @@ Jour 1:
 -> APK minimale
 
 Jour 2:
-3. Historique transactions
-4. Calculs financiers
-5. Graphique
+
+1. Historique transactions
+2. Calculs financiers
+3. Graphiques
 
 -> APK stable
