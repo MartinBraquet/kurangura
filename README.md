@@ -6,20 +6,21 @@ Formation Python: app mobile pour gérer les stocks et ventes d’une boutique
 - Vendre les produits (stock mis à jour automatiquement)
 - Calculer les bénéfices et voir l’évolution avec des graphiques
 - Analyser les meilleurs produits
-- Partager la boutique avec les travailleurs pour qu’ils puissent aussi enregistrer ventes et achats
 
 # Fonctionnalités prévues
-- 1 boutique, 2 rôles (admin & vendeur)
-- Ajout produit, vente, stock, bénéfices
-- Historique simple et 1 graphique
+- 1 boutique, pas d'identification / utilisateur
 - Fonctionne sur un seul téléphone
+- Acheter / vendre des produits (nombre et prix par pièce)
+- Inventaire des stocks présents
+- Capital actuel, depenses et recettes, benefices
+- Historique simple et 1 graphique
 
 Ce qu’on va apprendre : 
 - Kivy
 - SQLite
-- logique stock/vente
+- logique achat / vente
 - graphiques
-- compilation APK Android
+- compilation APK Android sur buildozer
 
 # Installation
 
