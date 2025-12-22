@@ -224,11 +224,15 @@ Ne fais PAS tout d’un coup.
 
 ### Étapes recommandées
 
-1. SQLite + logique achat/vente
-2. Interface Kivy minimale
+Jour 1:
+1. Base de données: SQLite + logique achat/vente
+2. Interface Kivy (boutons, pages, etc.) 
+
+-> APK minimale
+
+Jour 2:
 3. Historique transactions
 4. Calculs financiers
 5. Graphique
-6. APK stable
 
-Chaque étape doit être **fonctionnelle seule**.
+-> APK stable
