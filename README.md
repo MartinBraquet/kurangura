@@ -33,14 +33,15 @@ Sinon, clonez le projet en ligne de commande (en remplaçant `votre-pseudo` par 
 git clone https://github.com/votre-pseudo/kurangura.git
 cd kurangura
 ```
+Installer python 3.10. Sur windows, vous pouvez utiliser [python.org](https://www.python.org/downloads/).
 
 Créez un environnement virtuel et installez les dépendances :
 
 ```bash
-python -m venv .venv
+python3.10 -m venv .venv
 .venv\Scripts\activate  # Sur Windows
 # source .venv/bin/activate  # Sur macOS/Linux
-pip install -r requirements.txt
+pip install -r requirements.txt -r requirements-release.txt
 ```
 
 # Implémentation

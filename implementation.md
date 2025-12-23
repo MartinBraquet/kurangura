@@ -165,11 +165,48 @@ Dès que tu as :
 
 ➡ compile un APK **immédiatement**.
 
+### Installation outils Windows
+
+Installe WSL avec Ubuntu.
+
+Ouvre WSL via la powershell et en tapant `wsl`.
+
 ### Installation outils Linux
 
+Deplace le projet dans le dossier `/mnt/c/Users/...`
+
+Dans WSL :
+
 ```bash
-sudo apt install python3-pip openjdk-17-jdk
-pip install kivy buildozer
+sudo apt update
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt install -y \
+    python3.10 \
+    python3.10-venv \
+    python3.10-pip \
+    openjdk-17-jdk \
+    unzip \
+    zip \
+    git \
+    autoconf \
+    automake \
+    libtool \
+    pkg-config \
+    zlib1g-dev \
+    libncurses5-dev \
+    libncursesw5-dev \
+    cmake \
+    libffi-dev \
+    libssl-dev
+```
+
+### Environnement virtuel Python
+
+```
+python3.10 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt -r requirements-release.txt
+pip install --upgrade pip setuptools wheel
 ```
 
 ### Compilation initiale

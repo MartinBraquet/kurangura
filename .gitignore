@@ -208,3 +208,4 @@ __marimo__/
 
 .idea
 /database/shop.db
+/.buildozer/
