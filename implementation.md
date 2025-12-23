@@ -133,19 +133,6 @@ Utilise `ScreenManager` :
 
 ## 5. Graphiques (point délicat)
 
-### Deux options réalistes
-
-#### Option 1 (la plus stable Android)
-
-* `matplotlib`
-* Générer une image PNG
-* L’afficher dans Kivy
-
-Avantage : fiable sur Android
-Inconvénient : moins interactif
-
-#### Option 2
-
 * `kivy_garden.graph`
 
 Avantage : graphique dynamique
@@ -229,7 +216,7 @@ buildozer -v android debug
 Dans `buildozer.spec` :
 
 ```
-requirements = python3,kivy,sqlite3,matplotlib
+requirements = python3,kivy,sqlite3
 android.permissions = WRITE_EXTERNAL_STORAGE
 ```
 
