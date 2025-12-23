@@ -1,0 +1,68 @@
+<VenteScreen>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 15
+
+        Label:
+            text: "VENTE"
+            font_size: 28
+            color: 0, 0, 0, 1
+
+        BoxLayout:
+            Label:
+                text: "NOM DU PRODUIT"
+                color: 0, 0, 0, 1
+            TextInput:
+                id: nom_produit
+                multiline: False
+                canvas.before:
+                    Color:
+                        rgba: 1, 0, 0, 1
+                    Line:
+                        rectangle: self.x, self.y, self.width, self.height
+                        width: 2
+
+        BoxLayout:
+            Label:
+                text: "QUANTITE"
+                color: 0, 0, 0, 1
+            TextInput:
+                id: quantite
+                multiline: False
+                canvas.before:
+                    Color:
+                        rgba: 1, 0, 0, 1
+                    Line:
+                        rectangle: self.x, self.y, self.width, self.height
+                        width: 2
+
+        BoxLayout:
+            Label:
+                text: "PRIX"
+                color: 0, 0, 0, 1
+            TextInput:
+                id: prix
+                multiline: False
+                canvas.before:
+                    Color:
+                        rgba: 1, 0, 0, 1
+                    Line:
+                        rectangle: self.x, self.y, self.width, self.height
+                        width: 2
+
+        Button:
+            text: "VALIDER"
+            background_color: 0, 1, 0, 1
+
+        Button:
+            text: "RETOUR"
+            background_color: 1, 0, 0, 1
+            on_press: app.root.current = "main"

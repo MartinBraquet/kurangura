@@ -1,0 +1,36 @@
+<MainScreen>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 40
+        spacing: 30
+
+        Label:
+            text: "MENU PRINCIPAL"
+            font_size: 30
+            color: 0, 0, 0, 1
+            size_hint_y: 0.3
+
+        Button:
+            text: "VENTE"
+            font_size: 22
+            background_color: 0, 0.7, 1, 1
+            on_press: app.root.current = "vente"
+
+        Button:
+            text: "ACHAT"
+            font_size: 22
+            background_color: 0.7, 1, 0, 1
+            on_press: app.root.current = "achat"
+
+        Button:
+            text: "STATS"
+            font_size: 22
+            background_color: 0.7, 1, 0, 1
+            on_press: print("Stats")
