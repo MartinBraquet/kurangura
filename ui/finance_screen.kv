@@ -1,4 +1,4 @@
-<StatScreen>:
+<FinanceScreen>:
     canvas.before:
         Color:
             rgba: 1, 1, 1, 1
@@ -11,8 +11,13 @@
         padding: 20
 
         Label:
-            text: "STAT"
+            text: "FINANCE"
             font_size: 28
             color: 0, 0, 0, 1
 
         Widget:
+
+        Button:
+            text: "RETOUR"
+            background_color: 1, 0, 0, 1
+            on_press: app.root.current = "main"

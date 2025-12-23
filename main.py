@@ -12,7 +12,7 @@ from models import DB_PATH
 Builder.load_file("ui/main_screen.kv")
 Builder.load_file("ui/sell_screen.kv")
 Builder.load_file("ui/buy_screen.kv")
-Builder.load_file("ui/stats_screen.kv")
+Builder.load_file("ui/finance_screen.kv")
 Builder.load_file("ui/inventaire_screen.kv")
 
 
@@ -28,7 +28,7 @@ class AchatScreen(Screen):
     pass
 
 
-class StatScreen(Screen):
+class FinanceScreen(Screen):
     pass
 
 
@@ -68,7 +68,7 @@ class GestionApp(App):
         sm.add_widget(MainScreen(name="main"))
         sm.add_widget(VenteScreen(name="vente"))
         sm.add_widget(AchatScreen(name="achat"))
-        sm.add_widget(StatScreen(name="stat"))
+        sm.add_widget(FinanceScreen(name="finance"))
         sm.add_widget(InventaireScreen(name="inventaire"))
         return sm
 
