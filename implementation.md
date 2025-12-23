@@ -205,8 +205,8 @@ sudo apt install -y \
 ```
 python3.10 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt -r requirements-release.txt
-pip install --upgrade pip setuptools wheel
+pip install -r requirements.txt -r requirements-compilation.txt
+pip install --upgrade pip setuptools wheel pyjnius
 ```
 
 ### Compilation initiale
@@ -216,7 +216,11 @@ buildozer init
 buildozer -v android debug
 ```
 
-❗ Attends-toi à des erreurs. C’est normal.
+❗ Attends-toi à des erreurs. C’est normal. Copie-colle les erreurs dans ChatGPT pour les résoudre, et puis relance la compilation:
+```bash
+buildozer android clean
+buildozer -v android debug
+```
 
 ---
 
@@ -247,7 +251,7 @@ SQL exemple :
 
 ```sql
 SELECT product_id, SUM(quantity)
-FROM Transaction
+FROM Transactions
 WHERE type='SELL'
 GROUP BY product_id
 ORDER BY SUM(quantity) DESC

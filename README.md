@@ -41,7 +41,7 @@ Créez un environnement virtuel et installez les dépendances :
 python3.10 -m venv .venv
 .venv\Scripts\activate  # Sur Windows
 # source .venv/bin/activate  # Sur macOS/Linux
-pip install -r requirements.txt -r requirements-release.txt
+pip install -r requirements.txt -r requirements-compilation.txt
 ```
 
 # Implémentation
