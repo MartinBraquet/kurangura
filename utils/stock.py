@@ -1,6 +1,6 @@
 import sqlite3
 
-from models import DB_PATH
+from utils.constants import DB_PATH
 
 
 def achat(nom, quantite, prix_total):

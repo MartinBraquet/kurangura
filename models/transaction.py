@@ -1,6 +1,6 @@
 import sqlite3
 
-from models import DB_PATH
+from utils.constants import DB_PATH
 
 
 def create_database(db_path=DB_PATH):

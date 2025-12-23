@@ -1,3 +1,4 @@
+import os
 import sqlite3
 
 from kivy.app import App
@@ -6,7 +7,7 @@ from kivy.properties import ListProperty
 from kivy.uix.screenmanager import Screen
 from kivy.uix.screenmanager import ScreenManager
 
-from models import DB_PATH
+from utils.constants import DB_PATH
 
 # Chargement des fichiers KV
 Builder.load_file("ui/main_screen.kv")
@@ -64,6 +65,13 @@ class InventaireScreen(Screen):
 
 class GestionApp(App):
     def build(self):
+
+        if not os.path.exists(DB_PATH):
+            print("Creation de la base de donnees")
+            from models import produit, transaction
+            produit.create_database()
+            transaction.create_database()
+
         sm = ScreenManager()
         sm.add_widget(MainScreen(name="main"))
         sm.add_widget(VenteScreen(name="vente"))

@@ -193,7 +193,7 @@ sudo apt install -y \
 python3.10 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt -r requirements-compilation.txt
-pip install --upgrade pip setuptools wheel pyjnius
+pip install --upgrade pip setuptools wheel
 ```
 
 ### Compilation initiale
