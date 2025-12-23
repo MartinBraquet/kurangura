@@ -8,13 +8,14 @@ def create_database(db_path=DB_PATH):
     cursor = conn.cursor()
 
     cursor.execute("""
-        CREATE TABLE IF NOT EXISTS Product (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL,
-            purchase_price REAL,
-            stock INTEGER NOT NULL CHECK(stock >= 0)
-          
-    """)
+                   CREATE TABLE IF NOT EXISTS Product
+                   (
+                       id             INTEGER PRIMARY KEY AUTOINCREMENT,
+                       name           TEXT    NOT NULL,
+                       purchase_price REAL,
+                       stock          INTEGER NOT NULL CHECK (stock >= 0)
+
+                   """)
 
     conn.commit()
     conn.close()
