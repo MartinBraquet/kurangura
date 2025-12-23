@@ -1,0 +1,73 @@
+<InventaireScreen>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 15
+
+        Label:
+            text: "INVENTAIRE"
+            font_size: 28
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 40
+
+        # En-tête
+        BoxLayout:
+            size_hint_y: None
+            height: 40
+            spacing: 10
+
+            Label:
+                text: "Nom"
+                bold: True
+                color: 0, 0, 0, 1
+
+            Label:
+                text: "Stock"
+                bold: True
+                color: 0, 0, 0, 1
+
+        # Liste scrollable
+        RecycleView:
+            id: rv
+            viewclass: "ProductRow"
+            data: [ { "name": p["name"], "stock": str(p["stock"]) } for p in root.products ]
+
+            RecycleBoxLayout:
+                default_size: None, 40
+                default_size_hint: 1, None
+                size_hint_y: None
+                height: self.minimum_height
+                orientation: "vertical"
+
+        Button:
+            text: "RETOUR"
+            size_hint_y: None
+            height: 45
+            background_color: 1, 0, 0, 1
+            on_press: app.root.current = "main"
+
+
+<ProductRow@BoxLayout>:
+    name: ""
+    stock: ""
+
+    size_hint_y: None
+    height: 40
+    orientation: "horizontal"
+    spacing: 10
+
+    Label:
+        text: root.name
+        color: 0, 0, 0, 1
+
+    Label:
+        text: root.stock
+        color: 0, 0, 0, 1

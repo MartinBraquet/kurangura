@@ -1,12 +1,19 @@
+import sqlite3
+
 from kivy.app import App
-from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
+from kivy.properties import ListProperty
+from kivy.uix.screenmanager import Screen
+from kivy.uix.screenmanager import ScreenManager
+
+from models import DB_PATH
 
 # Chargement des fichiers KV
 Builder.load_file("ui/main_screen.kv")
 Builder.load_file("ui/sell_screen.kv")
 Builder.load_file("ui/buy_screen.kv")
 Builder.load_file("ui/stats_screen.kv")
+Builder.load_file("ui/inventaire_screen.kv")
 
 
 class MainScreen(Screen):
@@ -25,6 +32,36 @@ class StatScreen(Screen):
     pass
 
 
+class InventaireScreen(Screen):
+    products = ListProperty([])
+
+    def on_pre_enter(self):
+        self.load_inventory()
+
+    def load_inventory(self):
+        conn = sqlite3.connect(DB_PATH)
+        cursor = conn.cursor()
+
+        cursor.execute("""
+                       SELECT name, stock
+                       FROM Product
+                       ORDER BY name
+                       """)
+
+        rows = cursor.fetchall()
+        conn.close()
+
+        print(rows)
+
+        self.products = [
+            {
+                "name": row[0],
+                "stock": row[1]
+            }
+            for row in rows
+        ]
+
+
 class GestionApp(App):
     def build(self):
         sm = ScreenManager()
@@ -32,6 +69,7 @@ class GestionApp(App):
         sm.add_widget(VenteScreen(name="vente"))
         sm.add_widget(AchatScreen(name="achat"))
         sm.add_widget(StatScreen(name="stat"))
+        sm.add_widget(InventaireScreen(name="inventaire"))
         return sm
 
 

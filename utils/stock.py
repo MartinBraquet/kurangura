@@ -44,7 +44,7 @@ def get_product(nom):
         SELECT id, name, purchase_price, stock
         FROM Product
         WHERE name = ?
-    """, (nom,))
+    """, (nom.lower(),))
 
     ligne = cursor.fetchone()
     conn.close()
