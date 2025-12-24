@@ -264,4 +264,10 @@ Jour 2:
 2. Calculs financiers
 3. Graphiques
 
+- [x] Finir fonction achat en ajoutant une ligne de transaction
+- [x] Traiter le cas où il n'y a pas de stock disponible pour le produit à vendre
+- [ ] Ajouter table pour le cash (argent liquide) avec colonnes: montant, date
+- [ ] Page finance: montrer cash, valeur des produits, et capital actuel
+- [ ] Graphique de l'évolution du capital au cours du temps
+
 -> APK stable

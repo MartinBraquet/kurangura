@@ -7,13 +7,25 @@ def achat(nom, quantite, prix_total):
     prix_unitaire = prix_total / quantite
     produit = get_product(nom)
     if produit is None:
-        update_product(None, nom, quantite)
+        produit = update_product(None, nom, quantite)
+
     else:
         stock = produit["stock"] + quantite
         update_product(produit["id"], nom, stock)
+    ajouter_transaction(product_id=produit["id"], quantite=quantite,
+                        prix_unitaire=prix_unitaire, type="BUY")
 
-    # Ajouter une ligne dans la table transaction...
-    ...
+
+def ajouter_transaction(product_id, quantite, prix_unitaire, type):
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    cursor.execute("""
+                   INSERT INTO Transactions (product_id, quantity, unit_price, type)
+                   VALUES (?, ?, ?, ?)
+                   """, (product_id, quantite, prix_unitaire, type))
+    conn.commit()
+    conn.close()
 
 
 def vente(nom, quantite, prix_total):
@@ -23,10 +35,12 @@ def vente(nom, quantite, prix_total):
         update_product(None, nom, quantite)
     else:
         stock = produit["stock"] - quantite
-        update_product(produit["id"], nom, stock)
+        if 0 > stock:
+            message = "Stock insuffisant pour la vente de {}.".format(nom)
+            raise ValueError(message)
 
-    # Ajouter une ligne dans la table transaction...
-    ...
+        update_product(produit["id"], nom, stock)
+    ajouter_transaction(product_id=produit["id"], quantite=quantite,prix_unitaire=prix_unitaire, type="SELL")
 
 
 def update_product(product_id, name, stock):
@@ -43,9 +57,13 @@ def update_product(product_id, name, stock):
                        SET stock = ?
                        WHERE id = ?
                        """, (stock, product_id))
+    product_id = cursor.lastrowid
 
     conn.commit()
     conn.close()
+    return {
+        "id": product_id,
+    }
 
 
 def get_product(nom):
@@ -75,3 +93,4 @@ def get_product(nom):
 if __name__ == "__main__":
     achat("pomme", 3, 10000)
     achat("banane", 4, 2000)
+    vente("pomme", 2, 10000)
