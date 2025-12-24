@@ -59,18 +59,18 @@
                     Line:
                         rectangle: self.x, self.y, self.width, self.height
                         width: 2
-
-        Button:
-            text: "VALIDER"
-            background_color: 0, 1, 0, 1
-            on_press: root.vente(nom_produit.text, quantite.text, prix.text)
-
         Label:
             id: error_label
             text: ""
             color: 1, 0, 0, 1
             size_hint_y: None
             height: self.texture_size[1] if self.text else 0
+        Button:
+            text: "VALIDER"
+            background_color: 0, 1, 0, 1
+            on_press: root.vente(nom_produit.text, quantite.text, prix.text)
+
+
 
         Button:
             text: "RETOUR"

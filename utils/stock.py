@@ -32,7 +32,7 @@ def vente(nom, quantite, prix_total):
     prix_unitaire = prix_total / quantite
     produit = get_product(nom)
     if produit is None:
-        update_product(None, nom, quantite)
+        raise ValueError("Produit inexistant")
     else:
         stock = produit["stock"] - quantite
         if 0 > stock:
