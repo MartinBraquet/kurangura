@@ -5,7 +5,7 @@ from kivy.app import App
 from kivy.clock import Clock
 from kivy.lang import Builder
 from kivy.properties import ListProperty
-from kivy.uix.screenmanager import Screen
+from kivy.uix.screenmanager import Screen, NoTransition
 from kivy.uix.screenmanager import ScreenManager
 
 from utils.constants import DB_PATH
@@ -138,7 +138,7 @@ class GestionApp(App):
             produit.create_database()
             transaction.create_database()
 
-        sm = ScreenManager()
+        sm = ScreenManager(transition=NoTransition())
         sm.add_widget(MainScreen(name="main"))
         sm.add_widget(VenteScreen(name="vente"))
         sm.add_widget(AchatScreen(name="achat"))

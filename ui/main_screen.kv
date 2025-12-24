@@ -5,38 +5,88 @@
         Rectangle:
             pos: self.pos
             size: self.size
+            source: "splash_app.png"
 
     BoxLayout:
         orientation: "vertical"
-        padding: 40
-        spacing: 30
+        padding: "20dp"
+        spacing: "20dp"
 
+        # Titre en haut
         Label:
             text: "MENU PRINCIPAL"
-            font_size: 30
-            color: 0, 0, 0, 1
-            size_hint_y: 0.3
+            font_size: "24sp"
+            color: 1, 1, 1, 1
+            size_hint_y: None
+            height: self.texture_size[1]   # la hauteur s'ajuste au texte
+            text_size: self.width, None    # largeur limitée au Label
+            halign: "center"               # texte centré horizontalement
+            valign: "middle"
 
-        Button:
-            text: "VENTE"
-            font_size: 22
-            background_color: 0, 0.7, 1, 1
-            on_press: app.root.current = "vente"
+        # Espace flexible pour centrer les boutons
+        Widget:
+            size_hint_y: 1
 
-        Button:
-            text: "ACHAT"
-            font_size: 22
-            background_color: 0.7, 1, 0, 1
-            on_press: app.root.current = "achat"
+        # Les boutons centrés
+        BoxLayout:
+            orientation: "vertical"
+            spacing: "10dp"
+            size_hint_y: None
+            height: self.minimum_height
+            padding: 0,0,0,0
 
-        Button:
-            text: "INVENTAIRE"
-            font_size: 22
-            background_color: 0.7, 1, 0, 1
-            on_press: app.root.current = "inventaire"
+            Button:
+                text: "VENTE"
+                font_size: "18sp"
+                background_normal: ""
+                background_color: 0.1, 0.2, 0.576, 0.9
+                color: 1,1,1,1
+                size_hint_y: None
+                height: "40dp"
+                on_release: app.root.current = "vente"
 
-        Button:
-            text: "FINANCE"
-            font_size: 22
-            background_color: 0.7, 1, 0, 1
-            on_press: app.root.current = "finance"
+            Button:
+                text: "ACHAT"
+                font_size: "18sp"
+                background_normal: ""
+                background_color: 0.1, 0.2, 0.576, 0.9
+                color: 1,1,1,1
+                size_hint_y: None
+                height: "40dp"
+                on_release: app.root.current = "achat"
+
+            Button:
+                text: "INVENTAIRE"
+                font_size: "18sp"
+                background_normal: ""
+                background_color: 0.1, 0.2, 0.576, 0.9
+                color: 1,1,1,1
+                size_hint_y: None
+                height: "40dp"
+                on_release: app.root.current = "inventaire"
+
+            Button:
+                text: "FINANCE"
+                font_size: "18sp"
+                background_normal: ""
+                background_color: 0.1, 0.2, 0.576, 0.9
+                color: 1,1,1,1
+                size_hint_y: None
+                height: "40dp"
+                on_release: print("Finance")
+                on_press: app.root.current = "finance"
+
+        # Espace flexible pour pousser le label en bas
+        Widget:
+            size_hint_y: 1
+
+        # Label du bas
+        Label:
+            text: "MANUKA MUTIMA MWERANDA"
+            font_size: "14sp"
+            color: 1, 1, 1, 1
+            size_hint_y: None
+            height: self.texture_size[1]   # hauteur automatique
+            text_size: self.width, None    # largeur limitée au label
+            halign: "center"               # centré horizontalement
+            valign: "middle"               # centré verticalement
